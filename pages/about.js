@@ -1,16 +1,14 @@
+import styles from '../styles.module.css'
+import Header from '../components/Header'
 
-function About () {
-    return(
-
+export default function About() {
+    return (
         <>
-
-           <h1> Welcome to about page </h1> 
+            <div className={styles.hello}>
+                <Header />
+                <h1>About Page</h1>
+            </div>
         </>
-
-
     )
 
-
 }
-
-export default About;

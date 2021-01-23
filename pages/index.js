@@ -1,29 +1,23 @@
 import styles from '../styles.module.css'
-import About from './about'
-import Link from 'next/link'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default function Home(props) {
+  console.log(props)
   return (
-    <>
-
-      <Link href = '/'>
-        <a>Home</a>
-      </Link>
-      <Link href = './about'>
-        <a>About</a>
-      </Link>
-      <div className={styles.hello}>
-        <p>Hello World</p>
-      </div>
-
-    </>
-
+    <div className={styles.hello}>
+      <Header />
+      <h2>{props.comic.title}</h2>
+      <img src={props.comic.img} />
+      <Footer />
+    </div>
   )
 }
 
-export async function getServerSideProps(){
-  const response = await fetch('https://xkcd.com/info.0.json');
-  const jsonData  = await response.json();
-  console.log(jsonData)
-  return {props: {users: jsonData}}
+export async function getServerSideProps() {
+
+  const res = await fetch('https://xkcd.com/614/info.0.json');
+  const data = await res.json();
+  return { props: { comic: data } };
+
 }
