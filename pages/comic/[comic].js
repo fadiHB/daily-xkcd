@@ -7,7 +7,7 @@ export default function ComicDetails(props) {
         <>
             <div className={styles.hello}>
                 <Header />
-                <h2>{props.singleComic.title}</h2>
+                <h2>{props.singleComic.safe_title}</h2>
                 <img src={props.singleComic.img} />
                 <Footer/>
             </div>

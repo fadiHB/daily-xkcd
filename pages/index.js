@@ -7,7 +7,7 @@ export default function Home(props) {
   return (
     <div className={styles.hello}>
       <Header />
-      <h2>{props.comic.title}</h2>
+      <h2>{props.comic.safe_title}</h2>
       <img src={props.comic.img} />
       <Footer />
     </div>
